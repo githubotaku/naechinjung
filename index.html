@@ -1,5 +1,90 @@
 <!DOCTYPE html>
-<html>
-<head><title>내친중 홈페이지</title></head>
-<body><h1>공사 중입니다! 곧 멋진 영상들로 찾아뵐게요.</h1></body>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>내 친구 정혁이</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: #f2f2f2;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      padding-bottom: 84px;
+    }
+    .detail {
+      max-width: 645px;
+      margin: 0 auto;
+      background: #fff;
+    }
+    .detail img { display: block; width: 100%; height: auto; }
+
+    .banner {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      background: #111;
+      color: #fff;
+      z-index: 10;
+    }
+    .banner-inner {
+      max-width: 645px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .count { font-size: 13px; line-height: 1.4; color: #ccc; }
+    .count strong { display: block; font-size: 16px; color: #fff; font-variant-numeric: tabular-nums; }
+    .btn {
+      flex-shrink: 0;
+      background: #05ce78;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 18px;
+      border-radius: 6px;
+    }
+    @media (max-width: 380px) {
+      .count strong { font-size: 14px; }
+      .btn { font-size: 14px; padding: 11px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="detail">
+    <img src="images/01.webp" alt="내 친구 정혁이 소개 1">
+    <img src="images/02.webp" alt="내 친구 정혁이 소개 2">
+    <img src="images/03.webp" alt="내 친구 정혁이 소개 3">
+  </main>
+
+  <div class="banner">
+    <div class="banner-inner">
+      <div class="count">
+        펀딩 시작까지
+        <strong id="countdown">--일 --시간 --분 --초 남음</strong>
+      </div>
+      <a class="btn" href="https://tumblbug.com/" target="_blank" rel="noopener">텀블벅에서 펀딩하기</a>
+    </div>
+  </div>
+
+  <script>
+    var target = new Date("2026-12-02T00:00:00+09:00").getTime();
+    var el = document.getElementById("countdown");
+    function pad(n) { return String(n).padStart(2, "0"); }
+    function tick() {
+      var diff = target - Date.now();
+      if (diff <= 0) { el.textContent = "펀딩이 시작되었습니다"; return; }
+      var s = Math.floor(diff / 1000);
+      var d = Math.floor(s / 86400);
+      var h = Math.floor(s % 86400 / 3600);
+      var m = Math.floor(s % 3600 / 60);
+      el.textContent = pad(d) + "일 " + pad(h) + "시간 " + pad(m) + "분 " + pad(s % 60) + "초 남음";
+    }
+    tick();
+    setInterval(tick, 1000);
+  </script>
+</body>
 </html>
