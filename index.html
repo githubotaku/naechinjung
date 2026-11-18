@@ -63,10 +63,10 @@
   <div class="banner">
     <div class="banner-inner">
       <div class="count">
-        펀딩 시작까지
+        펀딩 마감까지
         <strong id="countdown">--일 --시간 --분 --초 남음</strong>
       </div>
-      <a class="btn" href="https://tumblbug.com/" target="_blank" rel="noopener">텀블벅에서 펀딩하기</a>
+      <a class="btn" href="https://tumblbug.com/ncj" target="_blank" rel="noopener">텀블벅에서 펀딩하기</a>
     </div>
   </div>
 
@@ -76,7 +76,7 @@
     function pad(n) { return String(n).padStart(2, "0"); }
     function tick() {
       var diff = target - Date.now();
-      if (diff <= 0) { el.textContent = "펀딩이 시작되었습니다"; return; }
+      if (diff <= 0) { el.textContent = "펀딩이 마감되었습니다"; return; }
       var s = Math.floor(diff / 1000);
       var d = Math.floor(s / 86400);
       var h = Math.floor(s % 86400 / 3600);
